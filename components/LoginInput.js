@@ -17,8 +17,8 @@ export default class LoginInput extends React.Component {
                 <Text style={styles.labelText}>{this.props.text}</Text>
                 <TextInput
                     style={styles.textInput}
-                    onChangeText={(text) => this.setState({ text })}
-                    value={this.state.text}
+                    onChangeText={(text) => this.props.onInputTextChange(text)}
+                    
                     placeholder={this.props.text}
                 />
             </View>
@@ -27,9 +27,7 @@ export default class LoginInput extends React.Component {
         )
     }
 }
-LoginInput.propTypes = {
-    
-}
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#aaf',

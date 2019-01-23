@@ -11,15 +11,19 @@ export default class RegisterScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { text: '' };
+        this.state = {
+            email: '',
+            password: '',
+            confirmPassword: ''
+        };
     }
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.headerText}>Register</Text>
-                <LoginInput text="Email" />
-                <LoginInput text="Password" />
-                <LoginInput text="Confirm Password" />
+                <LoginInput text="Email" onInputTextChange={this.onEmailTextChange} />
+                <LoginInput text="Password" onInputTextChange={this.onPasswordTextChange} />
+                <LoginInput text="Confirm Password" onInputTextChange={this.onConfirmPasswordTextChange} />
                 <Button
                     onPress={this.onPressRegister}
                     title="Register"
@@ -40,8 +44,32 @@ export default class RegisterScreen extends React.Component {
         )
     }
 
+    onEmailTextChange = (text) => {
+        this.setState({
+            email: text
+        });
+
+    }
+
+    onPasswordTextChange = (text) => {
+        this.setState({
+            password: text
+        });
+    }
+
+    onConfirmPasswordTextChange = (text) => {
+        this.setState({
+            confirmPassword: text
+        });
+    }
+
     onPressRegister = () => {
-        console.log('Register')
+        console.log('Register');
+        console.log(this.state.email);
+        console.log(this.state.password);
+        console.log(this.state.confirmPassword);
+
+        /******Insert Logic for Password Length, and to verify password=confirm password before accessing Firebase *******/
     }
 
     onPressGoToLoginScreen = () => {
