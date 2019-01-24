@@ -2,6 +2,20 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import firebase from 'firebase';
+
+//const config = require('./config');
+
+var config = {
+  apiKey: "AIzaSyBl08iWAXQ-eWEdOXcQ5270Nqt0L52YvNM",
+  authDomain: "project-livy-994ec.firebaseapp.com",
+  databaseURL: "https://project-livy-994ec.firebaseio.com",
+  projectId: "project-livy-994ec",
+  storageBucket: "project-livy-994ec.appspot.com",
+  messagingSenderId: "514283788612"
+};
+
+firebase.initializeApp(config);
 
 export default class App extends React.Component {
   state = {

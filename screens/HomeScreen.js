@@ -7,15 +7,26 @@ import {
   Text,
   TouchableOpacity,
   View,
+  InteractionManager
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import * as FirebaseAPI from '../modules/firebaseAPI';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  onPressLogout(navigation){
+    console.log('logout() called', navigation);
+    FirebaseAPI.logoutUser();
+
+    InteractionManager.runAfterInteractions(() => {
+      navigation.navigate('Auth')
+    })
+  }
 
   render() {
     return (
@@ -49,6 +60,12 @@ export default class HomeScreen extends React.Component {
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.helpContainer}>
+            <TouchableOpacity onPress={() => {this.onPressLogout(this.props.navigation)}} style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>Logout</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

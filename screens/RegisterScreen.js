@@ -6,17 +6,34 @@ import {
     Button
 } from 'react-native';
 import LoginInput from '../components/LoginInput';
+import firebase from 'firebase';
+import * as FirebaseAPI from '../modules/firebaseAPI';
 
 export default class RegisterScreen extends React.Component {
 
     constructor(props) {
         super(props);
+        this.unsubscriber = null;
         this.state = {
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
         };
     }
+
+    componentDidMount(){
+        this.watchAuthState(this.props.navigation);
+    }
+
+    watchAuthState(navigation){
+        firebase.auth().onAuthStateChanged(function(user){
+            console.log('onAuthStateChanged: ', user);
+            if(user){
+                navigation.navigate('Main');
+            }
+        });
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -68,7 +85,7 @@ export default class RegisterScreen extends React.Component {
         console.log(this.state.email);
         console.log(this.state.password);
         console.log(this.state.confirmPassword);
-
+        FirebaseAPI.createUser(this.state.email, this.state.password);
         /******Insert Logic for Password Length, and to verify password=confirm password before accessing Firebase *******/
     }
 
