@@ -10,7 +10,9 @@ import firebase from 'firebase';
 import * as FirebaseAPI from '../modules/firebaseAPI';
 
 export default class RegisterScreen extends React.Component {
-
+    static navigationOptions = {
+        header: null,
+      };
     constructor(props) {
         super(props);
         this.unsubscriber = null;
@@ -36,7 +38,11 @@ export default class RegisterScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View 
+            style={styles.container}
+            behavior="padding"
+            enabled  
+            >
                 <Text style={styles.headerText}>Register</Text>
                 <LoginInput text="Email" onInputTextChange={this.onEmailTextChange} />
                 <LoginInput text="Password" onInputTextChange={this.onPasswordTextChange} />

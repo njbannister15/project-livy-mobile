@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, View } from "react-native";
+import { Button, View, StyleSheet } from "react-native";
 
 export default class Demo extends Component {
   static navigationOptions = {
@@ -8,6 +8,10 @@ export default class Demo extends Component {
   render() {
     return (
       <View>
+        <Button
+          onPress={() => this.props.navigation.navigate("SignIn")}
+          title="Go Back To Sign In"
+        />
         <Button
           onPress={() =>
             this.props.navigation.navigate("FixedDimensionsBasics")
@@ -22,7 +26,7 @@ export default class Demo extends Component {
           onPress={() => this.props.navigation.navigate("JustifyContentBasics")}
           title="Justify Content Basics"
         />
-          <Button
+        <Button
           onPress={() => this.props.navigation.navigate("AlignItemsBasics")}
           title="Align Items Basics"
         />
