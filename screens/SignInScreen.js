@@ -15,8 +15,12 @@ export default class SignInScreen extends React.Component {
     }
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.headerText}>Login</Text>
+            <View 
+            
+            style={styles.container}>
+                <Text 
+                onLongPress={this.goToDemo}
+                style={styles.headerText}>Login</Text>
                 <LoginInput text="Email" />
                 <LoginInput text="Password" />
                 <Button
@@ -32,12 +36,15 @@ export default class SignInScreen extends React.Component {
                         color="#77f"
                     />
                 </View>
-
-
-
             </View>
         )
     }
+
+    goToDemo = () =>{
+        console.log("Go To Demo Area")
+        this.props.navigation.navigate('Demo');
+    }
+    
 
     onPressLogin = () => {
         console.log('Login')

@@ -48,15 +48,12 @@ export default class RegisterScreen extends React.Component {
                 />
                 <View style={styles.row}>
                     <Text>Already have an account?</Text>
-                    <Button
+                    <Button                 
                         onPress={this.onPressGoToLoginScreen}
                         title="Login"
                         color="#77f"
                     />
                 </View>
-
-
-
             </View>
         )
     }
@@ -65,7 +62,6 @@ export default class RegisterScreen extends React.Component {
         this.setState({
             email: text
         });
-
     }
 
     onPasswordTextChange = (text) => {
@@ -92,6 +88,8 @@ export default class RegisterScreen extends React.Component {
     onPressGoToLoginScreen = () => {
         this.props.navigation.navigate('SignIn');
     }
+
+   
 }
 
 const styles = StyleSheet.create({
