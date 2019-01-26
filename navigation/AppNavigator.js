@@ -9,9 +9,9 @@ import {
 import { Button, View } from "react-native";
 
 import MainTabNavigator from "./MainTabNavigator";
-import SignInScreen from "../screens/SignInScreen";
-import RegisterScreen from "../screens/RegisterScreen";
-import AuthLoadingScreen from "../screens/AuthLoadingScreen";
+import SignInScreen from "../screens/AuthScreens/SignInScreen";
+import RegisterScreen from "../screens/AuthScreens/RegisterScreen";
+import AuthLoadingScreen from "../screens/AuthScreens/AuthLoadingScreen";
 import Demo from "../screens/DemoScreens/Demo";
 import FixedDimensionsBasics from "../screens/DemoScreens/FixedDimensionsBasics";
 import FlexDirectionBasics from "../screens/DemoScreens/FlexDirectionBasics";

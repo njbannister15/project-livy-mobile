@@ -18,7 +18,7 @@ export default class LoginInput extends React.Component {
                 <TextInput
                     style={styles.textInput}
                     onChangeText={(text) => this.props.onInputTextChange(text)}
-                    
+                    secureTextEntry={this.props.secureTextEntry}
                     placeholder={this.props.text}
                 />
             </View>
