@@ -27,7 +27,7 @@ export default class SignInScreen extends React.Component {
     componentDidMount() {
         this.watchAuthState(this.props.navigation);
     }
-
+    //Watch Login State 
     watchAuthState(navigation) {
         firebase.auth().onAuthStateChanged(function (user) {
             console.log('onAuthStateChanged: ', user);
